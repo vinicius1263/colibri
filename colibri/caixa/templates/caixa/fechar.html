@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}fechar mesa{% endblock %}
+
+{% block content %}
+<h1>Digite o numero da mesa</h1>
+<input type="number" id="numero">
+  <button type="button" class="btn btn-primary" onclick="fechar()">fechar</button>
+
+<script>
+    function fechar(){
+    var data = {'numero':document.getElementById('numero').value,};
+    $.ajax({
+      type: "POST",
+      url: "{% url 'url_exibir' %}",
+      data: data,
+      success: function(data){
+      }
+    });
+    }
+</script>
+{% endblock %}

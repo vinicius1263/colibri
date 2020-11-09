@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}lancar{% endblock %}
+
+{% block content %}
+<div  class="container" style="padding-right:20%;">
+        <h3>numero da mesa</h3>
+        <input class="form-control" style="width:70px;" type="text" id="numMesa">
+         <h3>codigo do produto</h3>
+        <input class="form-control" style="width:70px;" type="text"  id="CodProduto">
+        <button type="button" class="btn btn-primary" onclick="lancar()">lancar</button>
+
+    </div>
+
+<script>
+    function lancar(){
+    var data = {'numMesa':document.getElementById('numMesa').value, 'CodProduto':document.getElementById('CodProduto').value};
+    $.ajax({
+      type: "POST",
+      url: "{% url 'url_lancar' %}",
+      data: data,
+      success: function(data){
+      console.log(data);
+      }
+    });
+    }
+</script>
+{% endblock %}

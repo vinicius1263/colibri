@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}lista de mesas{% endblock %}
+
+{% block content %}
+
+
+   <!-- inicio da DIV principal -->
+
+        <div id="container">
+
+
+
+          <!-- inicio do título -->
+
+          <div id="titulo">
+
+            Fábrica de Software
+
+            <a id="link_abre" href="#">Clique Aqui</a>
+
+          </div>
+
+          <!-- fim do título -->
+
+
+
+          <!-- início do conteúdo -->
+
+          <div id="conteudo">
+
+            <p>A Fábrica de Software é um projeto inovador no mercado educacional, que busca a inovação e a interação continua entre teoria e prática, subsidiando os alunos na aplicação real dos conceitos aprendidos em sala de aula. Visa ainda simular o ambiente de uma empresa de desenvolvimento de softwares, criando uma ferramenta de gestão para micro e pequenas empresas e preparando mão de obra especializada para o mercado de desenvolvimento de sistemas. </p>
+
+          </div>
+
+          <!-- fim do conteúdo -->
+
+
+
+        </div>
+
+        <!-- fim da DIV principal -->
+
+<script type="text/javascript">
+// checa se o documento foi carregado
+$(document).ready( );
+</script>
+<script type="text/javascript">
+
+            // checa se o documento foi carregado
+            $(document).ready(function () {
+
+               // oculta a div #conteudo
+
+                            $("#conteudo").hide();
+
+                    // define o que acontece quando #link_abre é clicado
+                    $("#link_abre").click(function () {
+
+                        // aplica a ação de slide à conteúdo, na velocidade "slow"
+
+                                    $("#conteudo").slideToggle("slow");
+
+                });
+
+            });
+
+</script>
+
+
+
+
+
+
+{% endblock %}
+
+

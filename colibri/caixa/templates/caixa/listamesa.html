@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}lista de mesas{% endblock %}
+
+{% block content %}
+
+
+    <div class="row" style="padding:5px;margin:1px;">
+        {% for mesa in mesa %}
+        <div style="border:solid;text-align:center;" class="col-md-1 "><h2>{{ mesa }}</h2></div>
+        {% endfor %}
+    </div>
+
+
+   <!-- inicio da DIV principal -->
+
+        <div id="container">
+
+
+
+          <!-- inicio do título -->
+
+          <div id="titulo">
+
+
+
+            <a id="link_abre" href="#">lancar</a>
+
+          </div>
+
+          <!-- fim do título -->
+
+
+
+          <!-- início do conteúdo -->
+
+          <div id="conteudo">
+
+            <div  class="container" style="padding-right:20%;">
+        <h3>numero da mesa</h3>
+        <input class="form-control" style="width:70px;" type="text" id="numMesa">
+         <h3>codigo do produto</h3>
+        <input class="form-control" style="width:70px;" type="text"  id="CodProduto">
+        <button type="button" class="btn btn-primary" onclick="lancar()">lancar</button>
+
+    </div>
+
+<script>
+    function lancar(){
+    var data = {'numMesa':document.getElementById('numMesa').value, 'CodProduto':document.getElementById('CodProduto').value};
+    $.ajax({
+      type: "POST",
+      url: "{% url 'url_lancar' %}",
+      data: data,
+      success: function(data){
+      console.log(data);
+      }
+    });
+    }
+</script>
+          </div>
+
+          <!-- fim do conteúdo -->
+
+
+
+        </div>
+
+        <!-- fim da DIV principal -->
+
+<script type="text/javascript">
+// checa se o documento foi carregado
+$(document).ready( );
+</script>
+<script type="text/javascript">
+
+            // checa se o documento foi carregado
+            $(document).ready(function () {
+
+               // oculta a div #conteudo
+
+                            $("#conteudo").hide();
+
+                    // define o que acontece quando #link_abre é clicado
+                    $("#link_abre").click(function () {
+
+                        // aplica a ação de slide à conteúdo, na velocidade "slow"
+
+                                    $("#conteudo").slideToggle("slow");
+
+                });
+
+            });
+
+</script>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
